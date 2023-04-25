@@ -1,204 +1,166 @@
-
 #!/bin/bash
+#Ex1
 echo "Dame un numero:
 read num
-if (( snumero % 2 == 0 )); then
+#Aqui lo que hace el if es que si el numero que se ha introducido da cero de residuo te dice que es par pero si no lo es te dira que es impar
+if (( $num % 2 == 0 )); then
    echo "Pues $num es par"
 else
    echo "Digamos que $num es impar"
 fi
 
-#Ejercicio 2
-
-
+#Ex 2
 #!/bin/bash
 echo "Dame un numero:"
 read num
+#Este echo esneña la operacion para sacar el cuadrado del numero que se ha introducido
 echo "El cuadrado de $numero es $[( $numero * $numero )]"
 
-#Ejercicio 3
-
+#Ex 3
 #!/bin/bash
 echo "Escribe algo y te lo devuelvo en mayus:"
 read input
 echo "de nada ahora tienes lo que me habias escrito pero en mayusculas: "
+#Lo que hace que se ponga en mayusculas es el tr [:lower:] [:upper:] que si pones primero el upper y despues el lower en vez de imprimir en mayusculas sera en minusculas
 echo $input | tr '[:lower:]' '[:upper:]'
 
 
-#Ejercicio 4
-
+#Ex 4
 #!/bin/bash
 echo "Escribe algo y te lo devuelvo en minusculas:"
 read input
 echo "de nada ahora tienes lo que me habias escrito pero en minusculas: "
+#Lo que habia dicho en el ejercicio anterior, simplemente pones upper primero y despues lower
 echo $input | tr '[:upper:]' '[:lower:]'
 
-#Ejercicio 5
+#Ex 5
 #!/bin/bash
-echo "Introduse una cadena:"
-read cadena
-echo "Aqui vemos como la cadena se ve de forma inversa: $(echo $cadena | rev) "
+echo "Escribe algo y te lo devuelvo al reves:"
+read input
+echo "Aqui lo tienes:"
+#Simplemente para que se ponga al reves el input es poniendo rev junto a la variable del input
+echo $cadena | rev 
 
-#Ejercicio 6
-#AsemoS.....
-
+#Ex 6
 #!/bin/bash
-echo "Introduce un numero:"
-read numero
-echo "Estos son los numero pares hasta $numero"
-for ((x=0; x<=$numero; x+=2)); 
+echo "Dame un numero:"
+read num
+#Este for lo que hace es que recorre desde el 0 hasta la variable del input pero no de 1 en 1 sino de 2 en 2 ya que asi solo se ven los pares
+for ((x=0; x<=$num; x+=2)); 
 do
     echo "$x""
 done
+echo "Esos eran todos los pares hasta el numero $num"
 
-
-#Ejercicio 7
-#AsemoS.....
-
+#Ex 7
 #!/bin/bash
-echo "Introduce un numero:"
-read numero
-echo "Estos son los numero impares hasta $numero"
-for ((x=1; x<=$numero; x+=2)); 
+echo "Dame un numero:"
+read num
+#es la misma idea que en el ejercicio anterior pero para imprimir los impares empezamos por 1 no por 0
+for ((x=1; x<=$num; x+=2)); 
 do
-  echo "$x"
+    echo "$x""
+done
+echo "Esos eran todos los impares hasta el numero $num"
+
+#Ex 9
+#!/bin/bash
+echo "Dame un numero y te enseñare su tabla de multiplicar:"
+read num
+#Un for que te imprime 10 veces una multiplicacion pero la variable tabla se le suma 1 cada vez haciendo asi una tabla de multiplicar
+for ((tabla=0; tabla<=10; tabla++))
+do
+   echo "$num x $tabla = "$(($num*$tabla))
 done
 
-
-#Ejercicio 8
-#AsemoS.....
-
+#Ex 10
 #!/bin/bash
-echo "Introduce un numero:"
-read numero
-echo "Estos son los numero pares hasta $numero"
-for ((x=2; x<=$numero; x++)); 
+#este for recorre al reves porque se especifica num-- el tercero
+for ((num=10; num >=1; num--))
 do
-  es_primo=true
-  for ((y=2; y<x; y++))
-  do
-    if ((x % y == 0))
-    then
-      no_es_primo=false
-      break
-    fi
-  done
-  if $es_primo
-  then
-    echo "$x"
-  fi
+   echo $num 
 done
 
-
-#Ejercicio 9
-#AsemoS.....
-
+#Ex 11
 #!/bin/bash
-echo "Dime un numero:"
-read multiplicador
-echo "Aqui tenemos la tabla del $multiplicador"
-for ((num=0; num<=10; num++))
+echo "Dame un numero: "
+read num
+cont=0
+#en este while lo que hace es imprimirte el numero 0 pero despues se suma a si mismo con un 2 que cuando cont llega a ser igual o mayor que la variable del input, el while acaba
+while [ $cont -le $num ]
 do
-   echo "$multiplicador x $num = "$(($multiplicador*$num))
+    echo $cont
+    cont=$((cont + 2))
 done
 
-#Ejercicio 10
-#AsemoS.....
-
+#Ex 12
 #!/bin/bash
-for ((numero=10; numero >=1; numero--))
-do
-   echo $numero 
-done
-
-#Ejercicio 11
-#AsemoS.....
-
-#!/bin/bash
-echo "Introduce un numero:"
-read numero
-echo "---------------------"
-contador=0
-while [ $contador -le $numero ]
-do
-    echo $contador
-    contador=$(($contador + 2))
-done
-
-#Ejercicio 12
-#AsemoS.....
-
-#!/bin/bash
-echo "Ahora mismo estamos en el directorio:"
+echo "Estamos en este directorio: "
 pwd
-echo "Y dentro de este directorio tenemos:"
-for directorio in *
+echo "Y dentro hay: "
+#un for que por cada archivo dentro del directorio en el que estams te lo imprime
+for files in *
 do
-  echo $directorio
+  echo $files
 done
 
-#Ejercicio 13
-#AsemoS.....
-
+#Ex 13
 #!/bin/bash
-echo "Ahora mismo estamos en el directorio:"
+echo "Estamos en este directorio: "
 pwd
-echo "Y al ejecutar la comanda ls tenemos:"
-for directorio in *
+#este for hace lo mismo que el del anterior ejercicio pero con ls se puede ver los directorios tambien
+for directory in *
 do
   ls
 done
+echo "Eso es lo que habia en el directorio"
 
-#Ejercicio 14
-#AsemoS.....
-
+#Ex 14
 #!/bin/bash
-echo "Introduce una ruta de origen:"
+echo "Dame la ruta de lo que quieres copiar: "
 read origen
-echo "Introduce una ruta de destino:"
+echo "Donde quieres pegarlo: "
 read destino
-for archivos in $origen/*
+#Un for que copia 1 en 1 los archivos de la ruta origen hacia la destino
+for files in $origen/*
 do
-    cp -r "$archivos" "$destino"
+    cp -r "$files" "$destino"
 done
 
-#Ejercicio 15
-#AsemoS.....
-
+#Ex 15
 #!/bin/bash
-echo "Dime la ruta de algun directorio:"
-read ruta
-echo "Y al ejecutar la comanda ls tenemos:"
-for directorio in "$ruta"/*;
+echo "Dame una ruta de directorio: "
+read directory
+echo "Aqui tienes el tamaño de los archivos que hay en ese directorio: "
+#Un for que te enseña con un du el tamaño de cada archivo dentro del directorio que se especifica en la variable del input
+for directory in "$ruta"/*;
 do
-  du -h "$directorio"
+  du -h "$directory"
 done
 
-#Ejercicio 16
-#AsemoS.....
-
+#Ex 16
 #!/bin/bash
-echo "Introduce una cadena:"
-read cadena
-cadena=$(echo "$cadena" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
-cadena_inversa=$(echo "$cadena" | rev)
-if [ "$cadena" == "$cadena_inversa" ];
+echo "Escribeme algo y te digo si es palindromo: "
+read input
+#aqui hacemos una variable extra que es el input pero al reves
+reverse=$(echo "$input" | rev)
+#para ahora en el if compararlo con el normal y si son iguales te dira que son palindromos, si no, pos evidentemente no
+if [ "$input" == "$reverse" ];
 then
-   echo "La cadena ("$cadena") es un palindromo"
+   echo "Esto es un palindromo"
 else
-   echo "La cadena ("$cadena") no es un palindromo"
+   echo "Esto no es un palindromo"
 fi
-'
 
-#Ejercicio 17
-#AsemoS.....
-
+#Ex 17
 #!/bin/bash
-echo "Introduce una cadena:"
-read cadena
-longitud_cadena=${#cadena}
-for ((x=$longitud_cadena-1; x>=0; x--));
+echo "Escribe algo y te lo devuelvo al reves: "
+read input
+#esta variable es una lista del input para asi...
+inputlist=${#input}
+#Se pueda recorrer facilmetne con un for y asi poder imprimir el input al reves
+for ((x=$inputlist-1; x>=0; x--));
 do
-  cadena_inversa="$cadena_inversa${cadena:$x:1}"
+  cadena_inversa="$inputlist${input:$x:1}"
 done
-echo "Aqui podemos ver la cadena de forma inversa: $cadena_inversa"
+echo "$inputlist"
