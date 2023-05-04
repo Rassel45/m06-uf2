@@ -79,7 +79,6 @@ Ex9(){
 }
 Ex9
 
-
 Ex10(){
     list1=("hola" "que tal")
     list2=("somos" "una lista" "conjunta")
