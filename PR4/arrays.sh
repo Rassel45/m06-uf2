@@ -4,7 +4,6 @@ Ex1(){
     echo ${nums[@]}
 }
 Ex1 1 2 3 4 5 6 7 8 9 10
-$Ex1
 
 
 
@@ -13,7 +12,6 @@ Ex3(){
     echo ${#list[@]}
 }
 Ex3
-$Ex3
 
 Ex4(){
     delete=("hola" "que" "tal" "estoy acoplado")
@@ -24,7 +22,6 @@ Ex4(){
     echo ${delete[@]}
 }
 Ex4 3
-$Ex4
 
 Ex5(){
     add=("hola" "que" "tal")
@@ -35,7 +32,6 @@ Ex5(){
     echo ${add[@]}
 }
 Ex5
-$Ex5
 
 Ex6(){
     posant=$(($1-1))
@@ -44,7 +40,6 @@ Ex6(){
     echo ${insert[@]}
 }
 Ex6 1
-$Ex6
 
 Ex7(){
     names=("hola" "porfa" "no" "me" "borres" "este de aqui")
@@ -57,7 +52,6 @@ Ex7(){
     echo ${removed[@]}
 }
 Ex7 "este de aqui"
-$Ex7
 
 Ex8(){
     names=("hola" "buscas" "a" "este de aqui")
@@ -72,7 +66,7 @@ Ex8(){
     done
 }
 Ex8 "este de aqui"
-$Ex8
+
 
 Ex9(){
     listed=("1" "2" "3")
@@ -84,7 +78,7 @@ Ex9(){
     echo $sum
 }
 Ex9
-$Ex9
+
 
 Ex10(){
     list1=("hola" "que tal")
@@ -99,4 +93,3 @@ Ex10(){
     echo ${listogether[@]}
 }
 Ex10
-$Ex10
