@@ -81,7 +81,7 @@ ex10(){
 ex10 
 #Ex 11
 ex11(){
-cont=0
+    cont=0
     #en este while lo que hace es imprimirte el numero 0 pero despues se suma a si mismo con un 2 que cuando cont llega a ser igual o mayor que la variable del input, el while acaba
     while [ $cont -le $1 ]
     do

@@ -81,7 +81,7 @@ ex10(){
 ex10 
 #Ex 11
 ex11(){
-cont=0
+    cont=0
     #en este while lo que hace es imprimirte el numero 0 pero despues se suma a si mismo con un 2 que cuando cont llega a ser igual o mayor que la variable del input, el while acaba
     while [ $cont -le $1 ]
     do
@@ -115,12 +115,15 @@ ex13(){
 }
 ex13
 #Ex 14
-ex14(){
-    #Un for que copia 1 en 1 los archivos de la ruta origen hacia la destino
-    for files in $1/*
-    do
-        cp -r "$files" "$2"
-    done
+ex14() {
+  # Recorremos todos los archivos en el directorio origen
+  while read archivo; do
+    # Si el archivo es un archivo regular (no un directorio u otro tipo de archivo)
+    if [ -f "$archivo" ]; then
+      # Copiamos el archivo al directorio destino
+      cp "$archivo" "$DESTINO/"
+    fi
+  done < <(find "$ORIGEN" -maxdepth 1)
 }
 ex14 "/workspaces/m06-uf2/PR3" "/workspaces/m06-uf2/PR2"
 #Ex 15
