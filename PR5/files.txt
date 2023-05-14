@@ -1,0 +1,9 @@
+Ejemplo_ficheros.pdf
+PR5_Fichers.docx.pdf
+ex6.txt
+files.sh
+files.txt
+nums.txt
+pruebaex2carpeta
+test.txt
+test2.txt
